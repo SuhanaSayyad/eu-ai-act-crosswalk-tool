@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EU AI Act / NIST AI RMF / ISO 42001 Crosswalk Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-inner">
+            <div class="nav-logo">
+                <span class="logo-icon">AI</span>
+                <span class="logo-text">Compliance Crosswalk</span>
+            </div>
+            <div class="nav-links">
+                <a href="#interactive">Interactive</a>
+                <a href="#matrix">Full Matrix</a>
+                <a href="#gaps">Gap Analysis</a>
+                <a href="https://github.com/SuhanaSayyad" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="header-inner">
+            <h1>EU AI Act / NIST AI RMF / ISO 42001</h1>
+            <p class="subtitle">Interactive Compliance Crosswalk Tool</p>
+            <p class="description">Select a framework and control to see how it maps across all three regulatory frameworks, including mapping strength indicators, source links, and gap analysis showing where EU AI Act obligations have no equivalent in NIST or ISO 42001.</p>
+            <div class="header-stats">
+                <div class="stat">
+                    <span class="stat-number">30</span>
+                    <span class="stat-label">Controls Mapped</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Frameworks</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">True Gaps</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="framework-cards">
+            <div class="framework-info-card euaiact-card">
+                <div class="fi-icon">EU</div>
+                <h3>EU AI Act</h3>
+                <p>Regulation (EU) 2024/1689. Binding law for AI systems in the EU. High-risk obligations enforceable from 2 August 2026.</p>
+                <a href="https://artificialintelligenceact.eu" target="_blank" class="fw-link">Read full text</a>
+            </div>
+            <div class="connector">+</div>
+            <div class="framework-info-card nist-card">
+                <div class="fi-icon">NIST</div>
+                <h3>NIST AI RMF</h3>
+                <p>Voluntary AI Risk Management Framework from NIST. Four functions: Govern, Map, Measure, Manage. Free to use.</p>
+                <a href="https://airc.nist.gov/" target="_blank" class="fw-link">Read full text</a>
+            </div>
+            <div class="connector">+</div>
+            <div class="framework-info-card iso-card">
+                <div class="fi-icon">ISO</div>
+                <h3>ISO 42001</h3>
+                <p>International standard for AI Management Systems published in 2023. Certifiable and increasingly required in procurement.</p>
+                <a href="https://www.iso.org/standard/81230.html" target="_blank" class="fw-link">View standard</a>
+            </div>
+        </section>
+
+        <section class="strength-legend">
+            <h3>Mapping Strength Guide</h3>
+            <div class="legend-items">
+                <div class="legend-item"><span class="legend-dot strong"></span><strong>Strong</strong> - Direct equivalent covering the same obligation</div>
+                <div class="legend-item"><span class="legend-dot partial"></span><strong>Partial</strong> - Covers some but not all aspects</div>
+                <div class="legend-item"><span class="legend-dot indirect"></span><strong>Indirect</strong> - Related concept, significant gaps exist</div>
+                <div class="legend-item"><span class="legend-dot gap"></span><strong>No Equivalent</strong> - EU AI Act obligation not covered by this framework</div>
+            </div>
+        </section>
+
+        <section class="interactive-section" id="interactive">
+            <h2 class="section-title">Interactive Control Lookup</h2>
+            <p class="section-desc">Select a framework and a specific control to see the full mapping, strength indicators, and links to source documents.</p>
+
+            <div class="controls-row">
+                <div class="select-group">
+                    <label for="framework-select">1. Select Framework</label>
+                    <select id="framework-select">
+                        <option value="">Choose a framework</option>
+                        <option value="euaiact">EU AI Act</option>
+                        <option value="nist">NIST AI RMF</option>
+                        <option value="iso42001">ISO 42001</option>
+                    </select>
+                </div>
+                <div class="select-arrow">&#8594;</div>
+                <div class="select-group">
+                    <label for="control-select">2. Select Control</label>
+                    <select id="control-select" disabled>
+                        <option value="">Choose a control</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="results hidden" id="results">
+                <div class="result-card">
+                    <div class="card-header euaiact-header">
+                        <span class="framework-label">EU AI Act</span>
+                        <span class="ref-badge" id="euaiact-ref"></span>
+                    </div>
+                    <div class="card-body" id="euaiact-content"></div>
+                </div>
+                <div class="result-card">
+                    <div class="card-header nist-header">
+                        <span class="framework-label">NIST AI RMF</span>
+                        <span class="ref-badge" id="nist-ref"></span>
+                    </div>
+                    <div class="card-body" id="nist-content"></div>
+                </div>
+                <div class="result-card">
+                    <div class="card-header iso-header">
+                        <span class="framework-label">ISO 42001</span>
+                        <span class="ref-badge" id="iso-ref"></span>
+                    </div>
+                    <div class="card-body" id="iso-content"></div>
+                </div>
+            </div>
+
+            <div class="placeholder" id="placeholder">
+                <div class="placeholder-icon">&#8635;</div>
+                <p>Select a framework and control above to see the crosswalk mapping.</p>
+            </div>
+        </section>
+
+        <section class="table-section" id="matrix">
+            <h2 class="section-title">Full Crosswalk Matrix</h2>
+            <p class="section-desc">All 30 controls mapped across EU AI Act, NIST AI RMF, and ISO 42001 with mapping strength indicators and links to source documents.</p>
+
+            <div class="filter-row">
+                <input type="text" id="search-input" placeholder="Search controls, articles, or topics..." />
+                <select id="filter-chapter">
+                    <option value="">All EU AI Act Chapters</option>
+                    <option value="prohibited">Chapter II: Prohibited Practices</option>
+                    <option value="high-risk">Chapter III: High-Risk AI</option>
+                    <option value="transparency">Chapter IV: Transparency</option>
+                    <option value="gpai">Chapter V: GPAI Models</option>
+                    <option value="governance">Chapter VI: Governance</option>
+                    <option value="enforcement">Chapter VII: Enforcement</option>
+                </select>
+                <select id="filter-nist">
+                    <option value="">All NIST Functions</option>
+                    <option value="govern">GOVERN</option>
+                    <option value="map">MAP</option>
+                    <option value="measure">MEASURE</option>
+                    <option value="manage">MANAGE</option>
+                    <option value="none">No NIST Equivalent</option>
+                </select>
+                <label class="gap-toggle">
+                    <input type="checkbox" id="filter-gaps" />
+                    Show gaps only
+                </label>
+                <div class="filter-actions">
+                    <span class="result-count" id="result-count">30 of 30 controls</span>
+                    <button id="export-btn">Export CSV</button>
+                    <button id="pdf-btn">Download PDF</button>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="crosswalk-table">
+                    <thead>
+                        <tr>
+                            <th class="topic-col">Topic</th>
+                            <th class="euaiact-col">EU AI Act</th>
+                            <th class="nist-col">NIST AI RMF</th>
+                            <th class="iso-col">ISO 42001</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="gap-section" id="gaps">
+            <h2 class="section-title">Gap Analysis</h2>
+            <p class="section-desc">These are EU AI Act obligations that have no direct or indirect equivalent in NIST AI RMF or ISO 42001. Companies relying solely on these voluntary frameworks will not meet these specific EU AI Act requirements.</p>
+            <div class="gap-cards" id="gap-cards">
+                <div class="gap-card">
+                    <div class="gap-article">Article 48</div>
+                    <h4>CE Marking and Declaration of Conformity</h4>
+                    <p>The EU AI Act requires high-risk AI systems to bear the CE marking before market placement. Neither NIST AI RMF nor ISO 42001 include equivalent mandatory market access requirements.</p>
+                </div>
+                <div class="gap-card">
+                    <div class="gap-article">Article 49</div>
+                    <h4>EU AI Database Registration</h4>
+                    <p>High-risk AI systems must be registered in the EU public database before market placement. No voluntary framework requires registration in a government database.</p>
+                </div>
+                <div class="gap-card">
+                    <div class="gap-article">Article 44</div>
+                    <h4>Notified Body Third Party Assessment</h4>
+                    <p>Certain high-risk AI systems require mandatory conformity assessment by an accredited notified body. ISO 42001 certification is voluntary; NIST has no equivalent at all.</p>
+                </div>
+                <div class="gap-card">
+                    <div class="gap-article">Article 55</div>
+                    <h4>GPAI Systemic Risk Assessment</h4>
+                    <p>Providers of high-impact GPAI models with systemic risk must conduct adversarial testing and report to the EU AI Office. Neither framework addresses societal-scale systemic AI risk.</p>
+                </div>
+                <div class="gap-card">
+                    <div class="gap-article">Article 74</div>
+                    <h4>Market Surveillance and Enforcement</h4>
+                    <p>The EU AI Act creates legally binding enforcement powers including fines up to 35 million euros or 7% of global turnover. Voluntary frameworks create no legal liability.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="disclaimer-section">
+            <div class="disclaimer">
+                <span class="disclaimer-icon">!</span>
+                <p>This tool provides technical guidance only. It does not constitute legal advice and does not replace qualified legal consultation. Mapping strength assessments are based on publicly available documentation of each framework as of 2026.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <p>Built by <a href="https://www.linkedin.com/in/suhana35" target="_blank">Suhana Sayyad</a> | <a href="https://github.com/SuhanaSayyad/eu-ai-act-crosswalk-tool" target="_blank">View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
