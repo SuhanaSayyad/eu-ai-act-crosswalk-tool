@@ -160,18 +160,6 @@ python -m http.server 8000
 
 ---
 
-## Deploying on GitHub Pages
-
-1. Go to your repository on GitHub
-2. Click **Settings** then **Pages**
-3. Under **Source** select **Deploy from a branch**
-4. Select **main** branch and **/ (root)** folder
-5. Click **Save**
-
-Your tool will be live at `https://yourusername.github.io/eu-ai-act-crosswalk-tool` within a few minutes.
-
----
-
 ## Contributing
 
 Contributions are welcome. The most useful contributions are:
