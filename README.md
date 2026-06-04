@@ -146,7 +146,7 @@ Works in all modern browsers. The copy function uses the Clipboard API with a `d
 No installation required. Clone the repo and open `index.html` in a browser.
 
 ```bash
-git clone https://github.com/SuhanaSayyad039/eu-ai-act-crosswalk-tool.git
+git clone https://github.com/SuhanaSayyad/eu-ai-act-crosswalk-tool.git
 cd eu-ai-act-crosswalk-tool
 open index.html
 ```
