@@ -3,6 +3,7 @@
 > An open-source tool that maps EU AI Act obligations to their equivalents in NIST AI RMF and ISO 42001, with mapping strength indicators, gap analysis, and source document links. Built for compliance teams, AI governance practitioners, and anyone trying to understand how these three frameworks relate to each other.
 
 **Live demo:** https://suhanasayyad.github.io/eu-ai-act-crosswalk-tool
+
 **Built by:** [Suhana Sayyad](https://www.linkedin.com/in/suhana35) | MSc Cybersecurity, TUS Athlone 
 
 ---
