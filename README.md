@@ -205,6 +205,6 @@ MIT License. Free to use, fork, and modify. If you use this tool in a commercial
 
 ## Contact
 
-Built by [Suhana Sayyad](https://www.linkedin.com/in/suhana35) as part of an open-source EU AI Act compliance tooling project. IAPP member, MSc Cybersecurity at TUS Athlone, Ireland.
+Built by [Suhana Sayyad](https://www.linkedin.com/in/suhana35) as part of an open-source EU AI Act compliance tooling project. MSc Cybersecurity at TUS Athlone, Ireland.
 
 If you find an error in the mappings or want to discuss the tool, open a GitHub issue or connect on LinkedIn.
