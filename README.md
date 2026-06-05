@@ -185,18 +185,6 @@ This tool is a technical reference guide, not legal advice. A few important cave
 
 ---
 
-## Related tools in this series
-
-This tool is part of a suite of open-source EU AI Act compliance tools:
-
-1. **ISO 42001 / EU AI Act / NIST AI RMF Crosswalk Tool**  -  this tool
-2. **Article 50 Transparency Obligation Checker**  - coming soon
-3. EU AI Act Deployer Evidence Pack Generator  -  coming soon
-4. Article 4 AI Literacy Assessment Tool  -  coming soon
-5. Irish-Specific EU AI Act Readiness Diagnostic  -  coming soon
-
----
-
 ## License
 
 MIT License. Free to use, fork, and modify. If you use this tool in a commercial product or client engagement, attribution is appreciated but not required.
