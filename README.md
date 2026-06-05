@@ -2,8 +2,7 @@
 
 > An open-source tool that maps EU AI Act obligations to their equivalents in NIST AI RMF and ISO 42001, with mapping strength indicators, gap analysis, and source document links. Built for compliance teams, AI governance practitioners, and anyone trying to understand how these three frameworks relate to each other.
 
-**Live demo:** https://suhanasayyad.github.io/eu-ai-act-crosswalk-tool/
-
+**Live demo:** https://suhanasayyad.github.io/eu-ai-act-crosswalk-tool
 **Built by:** [Suhana Sayyad](https://www.linkedin.com/in/suhana35) | MSc Cybersecurity, TUS Athlone 
 
 ---
@@ -182,6 +181,18 @@ This tool is a technical reference guide, not legal advice. A few important cave
 - The EU AI Act is still being implemented. Delegated acts, harmonised standards and guidance from the EU AI Office are continuing to be published. Some mappings may need updating as implementation guidance evolves.
 - ISO 42001 access requires purchase of the full standard from ISO. The descriptions in this tool are based on publicly available information about the standard.
 - This tool covers the EU AI Act obligations most relevant to providers and deployers of high-risk AI systems. It does not cover every article of the regulation.
+
+---
+
+## Related tools in this series
+
+This tool is part of a suite of open-source EU AI Act compliance tools:
+
+1. **ISO 42001 / EU AI Act / NIST AI RMF Crosswalk Tool**  -  this tool
+2. **Article 50 Transparency Obligation Checker**  - coming soon
+3. EU AI Act Deployer Evidence Pack Generator  -  coming soon
+4. Article 4 AI Literacy Assessment Tool  -  coming soon
+5. Irish-Specific EU AI Act Readiness Diagnostic  -  coming soon
 
 ---
 
